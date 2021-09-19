@@ -1,4 +1,4 @@
-package backjoon;
+package backjoon.complete;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
  *<pre>
  *     수정일      수정자             수정내용
  *    -------   --------    --------------------
- *    2021.08.10  Jhgyu             최초 생성
+ *    2021.09.14  Jhgyu             최초 생성
  *</pre>
  *
  * @author Jhgyu
