@@ -1,4 +1,4 @@
-package backjoon.ing;
+package backjoon.complete;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,15 +30,16 @@ import java.io.InputStreamReader;
  */
 
 public class Backjoon_2750 {
-    public static void Main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int inputCnt = Integer.parseInt(br.readLine());
         int[] ascendingArr = new int[inputCnt];
-
+        
+        //값이 입력 될때마다 버블 정렬을 사용해서 오름차순으로 정렬
         for(int i=0; i<ascendingArr.length; i++){
             int inputNum = Integer.parseInt(br.readLine());
             ascendingArr[i] = inputNum;
-            for(int j=i; j>=0; j--){
+            for(int j=i; j>0; j--){
                 if(ascendingArr[j] < ascendingArr[j-1]){
                     ascendingArr[j-1] = ascendingArr[j-1] + ascendingArr[j];
                     ascendingArr[j] = ascendingArr[j-1] - ascendingArr[j];
