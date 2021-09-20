@@ -1,4 +1,7 @@
-package backjoon.ing;
+package backjoon.complete;
+
+import java.io.*;
+import java.util.Stack;
 
 /**
  * 백준 9012 : 자료 구조, 문자열, 스택
@@ -30,9 +33,53 @@ package backjoon.ing;
  * @since 1.0
  * @version 1.0
  */
-
+/*
+스택을 활용하는 문제이다.
+ */
 public class Backjoon_9012 {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
 
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int StringCnt = Integer.parseInt(br.readLine());
+        String[] ParenthesisString = new String[StringCnt];
+
+        for(int i=0; i<ParenthesisString.length; i++){
+            ParenthesisString[i] = br.readLine();
+            if(checkVPS(ParenthesisString[i])){
+                bw.write("YES");
+                bw.newLine();
+                bw.flush();
+            }else{
+                bw.write("NO");
+                bw.newLine();
+                bw.flush();
+            }
+        }
+        bw.close();
+    }
+
+    public static boolean checkVPS(String checkPS){
+
+        Stack<Character> st = new Stack<>();
+        for(char checkChar : checkPS.toCharArray()){
+            if(checkChar == '('){
+                st.push(checkChar);
+            }else if(checkChar == ')'){
+                if(st.empty()){
+                    st.push(checkChar);
+                    break;
+                }else{
+                    st.pop();
+                }
+            }
+        }
+
+        if(st.empty()){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
